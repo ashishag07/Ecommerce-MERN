@@ -23,11 +23,11 @@ const verifyToken = (req, res, next)=>{
 
 const verifyTokenAndAuthorization = (req, res, next)=>{
     verifyToken(req, res, ()=>{
-        if (req.user.id === req.params.id || req.user.isAdmin){
+        if (req.user.id === req.params.userId || req.user.isAdmin){
             next();
         }
         else{
-            res.statu(401).json('you are not allowed to do that');
+            res.status(401).json('you are not allowed to do that');
         }
 
     })
@@ -36,7 +36,7 @@ const verifyTokenAndAuthorization = (req, res, next)=>{
 
 const verifyTokenAndAdmin = (req, res, next)=>{
     verifyToken(req, res, ()=>{
-        if (req.user.isAdmin || req.user.id === req.params.id){
+        if (req.user.isAdmin || req.user.id === req.params.userId){
             next();
         }
         else{

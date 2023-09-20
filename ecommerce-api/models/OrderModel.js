@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const OrderSchema = new Schema({
     userId: {type:String, required: true},
-    producs: [
+    products: [
         {
             productId:{
                 type:String
@@ -15,7 +15,7 @@ const OrderSchema = new Schema({
         }
     ],
 
-    ammount: {
+    amount: {
         type:Number,
         required: true
     },
